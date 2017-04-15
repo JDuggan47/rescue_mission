@@ -1,0 +1,25 @@
+<h1> Submit a Question </h1>
+
+<% unless @question.errors.empty? %>
+  <div>
+    <%= @question.errors.full_messages.to_sentence %>
+  </div>
+<% end %>
+
+<%= form_for(@question) do |f| %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<p><%= link_to "Back", questions_path %></p>

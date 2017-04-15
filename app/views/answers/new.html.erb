@@ -1,0 +1,14 @@
+<% unless @answer.errors.empty? %>
+  <div>
+    <%= @question.errors.full_messages.to_sentence %>
+  </div>
+<% end %>
+
+<%= form_for [@question, @answer] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.submit %>
+<% end %>
+
+<p><%= link_to "Back", question_path(@question) %></p>
